@@ -1,23 +1,24 @@
 
 $(document).ready(function() {
     $('.Tema').click(function(event){
-        $('body, .Header, .Account, .Burger__list').toggleClass('dark');
+        $('body, .Header, .Account, .Burger__list, .Tema').toggleClass('dark');
     });
 });
 
-$('.Tema').click(function(){
-    if (!$(this).data('status')) {
-      $(this).html('DARK');
-      $(this).data('status', true);
+const toggles = document.querySelectorAll('.Tema');
+
+toggles.forEach((toggle) => {
+  toggle.addEventListener('click', () => {
+    const currentStatus = toggle.innerText;
+
+    for (const toggle of toggles) {
+      toggle.innerText = currentStatus === 'DARK' ? 'LIGHT' : 'DARK';
     }
-    else {
-      $(this).html('LIGHT');
-      $(this).data('status', false);
-    }
+  });
 });
 
 $(document).ready(function() {
     $('.Header__burger').click(function(event){
-        $('.Burger__list').toggleClass('active');
+        $('.Burger__list, .Header__burger').toggleClass('active');
     });
 });
