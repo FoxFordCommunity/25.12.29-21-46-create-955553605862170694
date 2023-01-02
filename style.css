@@ -6,12 +6,14 @@
 }
 
 *:hover,
-*:hover::before{
+*:hover::before,
+*:hover::after{
   transition: .4s;
 }
 
 *:not(:hover),
-*:not(:hover)::before{
+*:not(:hover)::before,
+*:not(:hover)::after{
   transition: .5s;
 }
 
@@ -162,7 +164,7 @@ p.Tema::before{
 }
 
 .Account.dark{
-  background-image: url(img/Group\ 1.svg);
+  background-image: url(img/Group1.svg);
 }
 
 .Content{
@@ -253,6 +255,21 @@ body.dark .Footer{
   background-color: #fff;
 }
 
+.Header__burger.active span{
+  width: 0;
+}
+
+.Header__burger.active span::after{
+  top: 14px;
+  transform: rotate(45deg);
+  
+}
+
+.Header__burger.active span::before{
+  bottom: 14px;
+  transform: rotate(-45deg);
+}
+
 .Burger__content{
   display: none;
 }
@@ -338,6 +355,12 @@ body.dark .Footer{
 @media (max-width:750px) {
   .Header .Tema{
     display: none;
+  }
+  .Header.dark .Header__burger span::after,.Header.dark .Header__burger span::before{
+    background-color: #D9D9D9;
+  }
+  .Header.dark .Header__burger span{
+  background-color: #D9D9D9;
   }
   .Burger__list .Tema{
     display: block;
